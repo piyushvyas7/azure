@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title>Output Page</title>
+</head>
+
+<body>
+    <h2>Results</h2>
+    {% for entry in output.data %}
+    <p>{{entry}} : {{output.data[entry]}}</p>
+    {% endfor %}
+    <form method="get" action="/">
+        <button type="submit">Home</button>
+    </form>
+</body>
+
+</html>

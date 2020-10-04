@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <h2>Welcome</h2>
+    <form action="/api/replace" method="POST">
+        <label for="replace">Input String for conversion:</label><br><br>
+        <table>
+            <tr>
+                <textarea name='replace' rows="10" cols="100" placeholder="e.g. Google"></textarea>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+        <h4>This is an endpoint which facilates the conversion of below mapping tables</h4>
+        <table style="width:25%">
+            <caption>Conversion Table</caption>
+            <tr>
+                <th>Word</th>
+                <th>Replace</th>
+            </tr>
+            {% for entry in mappingTable %}
+            <tr>
+                <td>{{entry}}</td>
+                <td>{{mappingTable[entry]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+
+</html>
