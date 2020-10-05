@@ -24,5 +24,10 @@ class TestCommon(unittest.TestCase):
         result = common.replaceAll("This is Google and it have a GoogleTrademark")
         self.assertEqual(result,"This is Google© and it have a GoogleTrademark")
 
+    #Google, should be replace as Google©,
+    def test_Google_Special(self):
+        result = common.replaceAll("Google, has seen Google. and Oracle is now with Google and is now Google's GoogleTrademark")
+        self.assertEqual(result,"Google©, has seen Google©. and Oracle© is now with Google© and is now Google©'s GoogleTrademark")
+
 if __name__ == '__main__':
     unittest.main()
